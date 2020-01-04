@@ -1,0 +1,81 @@
+<div class="login-container" fxLayout="column" fxLayoutAlign="start stretch">
+
+  <div class="squares square1"></div>
+  <div class="squares square2"></div>
+  <div class="squares square3"></div>
+  <div class="squares square4"></div>
+  <div class="squares square5"></div>
+  <div class="squares square6"></div>
+  <div class="squares square7"></div>
+
+  <div class="login-header" fxLayout="row" fxLayoutAlign="start start">
+
+    <div class="header-logo" fxFlex="80">
+      <span>{{ 'login.title' | translate}}</span>
+    </div>
+    <div class="lang-change" fxFlex>
+      <button mat-stroked-button color="accent" type="button"  [matMenuTriggerFor]="animals">{{ langchangebtn }}</button>
+      <mat-menu #animals="matMenu">
+        <button mat-menu-item *ngFor="let lang of langs" (click)="switchLanguage(lang.value)">{{ lang.viewValue }}</button>
+      </mat-menu>
+    </div>
+
+  </div>
+
+  <div class="login-content" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="25px">
+
+    <div class="login-form" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="25px">
+
+      <div class="alternate-login" fxLayout="column" fxLayoutAlign="center center">
+
+        <div class="login-message">
+          <h2>{{ 'login.login-title' | translate }}</h2>
+        </div>
+
+      </div>
+
+      <div class="login-input" fxLayout="column" fxLayoutAlign="start stretch">
+        <form [formGroup]="loginUserForm">
+
+          <div class="userName" fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon color="primary" class="loginIcon">email</mat-icon>
+            <mat-form-field>
+              <input matInput placeholder="{{ 'login.email' | translate }}" formControlName="userID" required>
+            </mat-form-field>
+          </div>
+
+          <div class="userPass" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon color="primary" class="loginIcon">lock</mat-icon>
+            <mat-form-field>
+              <input matInput placeholder="{{ 'login.password' | translate }}" [type]="hide ? 'password' : 'text'" formControlName="userPassword"
+                required>
+              <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon color="primary">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+
+          <div class="login-btn" fxLayout="column" fxLayoutAlign="center stretch">
+            <button mat-raised-button type="button" (click)="login()" color="accent">{{ 'login.login-btn' | translate }}</button>
+          </div>
+
+        </form>
+
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="createAcc-btn" fxLayout="column" fxLayoutAlign="center stretch">
+        <button mat-raised-button type="button" (click)="registration($event)"
+          color="accent">{{ 'login.registration-btn' | translate }}</button>
+      </div>
+
+    </div>
+    <div class="footer-message" fxLayout="row" fxLayoutAlign="center center">
+      <span><i class="fa fa-copyright"></i> {{ 'login.footer' | translate }}</span>
+    </div>
+
+  </div>
+
+</div>

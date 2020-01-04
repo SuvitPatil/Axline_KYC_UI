@@ -1,0 +1,291 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "userPortal": {
+      "root": "projects/userPortal/",
+      "sourceRoot": "projects/userPortal/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/userPortal",
+            "index": "projects/userPortal/src/index.html",
+            "main": "projects/userPortal/src/main.ts",
+            "polyfills": "projects/userPortal/src/polyfills.ts",
+            "tsConfig": "projects/userPortal/tsconfig.app.json",
+            "assets": [
+              "projects/userPortal/src/favicon.ico",
+              "projects/userPortal/src/assets"
+            ],
+            "styles": [
+              "projects/userPortal/src/styles.css",
+              "projects/userPortal/src/myStyle.sass",
+              "projects/userPortal/src/assets/scss/black-dashboard.scss",
+              "projects/userPortal/src/assets/css/nucleo-icons.css",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/userPortal/src/environments/environment.ts",
+                  "with": "projects/userPortal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "userPortal:build",
+            "port":4201
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "userPortal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "userPortal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/userPortal/src/test.ts",
+            "polyfills": "projects/userPortal/src/polyfills.ts",
+            "tsConfig": "projects/userPortal/tsconfig.spec.json",
+            "karmaConfig": "projects/userPortal/karma.conf.js",
+            "styles": [
+              "projects/userPortal/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/userPortal/src/favicon.ico",
+              "projects/userPortal/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/userPortal/tsconfig.app.json",
+              "projects/userPortal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "userPortal-e2e": {
+      "root": "projects/userPortal-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/userPortal-e2e/protractor.conf.js",
+            "devServerTarget": "userPortal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "userPortal:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/userPortal-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "bankPortal": {
+      "root": "projects/bankPortal/",
+      "sourceRoot": "projects/bankPortal/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:component": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/bankPortal",
+            "index": "projects/bankPortal/src/index.html",
+            "main": "projects/bankPortal/src/main.ts",
+            "polyfills": "projects/bankPortal/src/polyfills.ts",
+            "tsConfig": "projects/bankPortal/tsconfig.app.json",
+            "assets": [
+              "projects/bankPortal/src/favicon.ico",
+              "projects/bankPortal/src/assets"
+            ],
+            "styles": [
+              "projects/bankPortal/src/styles.css",
+              "projects/bankPortal/src/myStyles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/bankPortal/src/environments/environment.ts",
+                  "with": "projects/bankPortal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "bankPortal:build",
+            "port":4202
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "bankPortal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bankPortal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bankPortal/src/test.ts",
+            "polyfills": "projects/bankPortal/src/polyfills.ts",
+            "tsConfig": "projects/bankPortal/tsconfig.spec.json",
+            "karmaConfig": "projects/bankPortal/karma.conf.js",
+            "styles": [
+              "projects/bankPortal/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/bankPortal/src/favicon.ico",
+              "projects/bankPortal/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/bankPortal/tsconfig.app.json",
+              "projects/bankPortal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "bankPortal-e2e": {
+      "root": "projects/bankPortal-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/bankPortal-e2e/protractor.conf.js",
+            "devServerTarget": "bankPortal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bankPortal:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/bankPortal-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "userPortal"
+}

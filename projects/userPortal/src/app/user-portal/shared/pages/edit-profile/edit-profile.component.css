@@ -1,0 +1,18 @@
+:host .mat-stepper-horizontal, .mat-stepper-vertical{
+  background-color: #27293d !important;
+}
+.card-footer{
+  text-align: center !important;
+}
+
+.playbtn{
+  margin: 5px !important;
+  line-height: 20px !important;
+}
+.resendCodeText{
+  color: #ba45f5 !important
+}
+.verifybtn{
+  margin-top: 30px;
+  padding: 5px 20px !important;
+}

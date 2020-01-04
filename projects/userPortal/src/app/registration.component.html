@@ -1,0 +1,124 @@
+<div class="register-container" fxLayout="column" fxLayoutAlign="start stretch">
+
+  <div class="squares square1"></div>
+  <div class="squares square2"></div>
+  <div class="squares square3"></div>
+  <div class="squares square4"></div>
+  <div class="squares square5"></div>
+  <div class="squares square6"></div>
+  <div class="squares square7"></div>
+
+  <div class="register-header" fxLayout="row" fxLayoutAlign="start start">
+
+    <div class="header-logo" fxFlex="80">
+      <span>{{ 'registration-form.title' | translate }}</span>
+    </div>
+
+    <div class="lang-change" fxFlex>
+      <button mat-stroked-button color="accent" type="button" [matMenuTriggerFor]="animals">{{ langchangebtn }}</button>
+      <mat-menu #animals="matMenu">
+        <button mat-menu-item *ngFor="let lang of langs"
+          (click)="switchLanguage(lang.value)">{{ lang.viewValue }}</button>
+      </mat-menu>
+    </div>
+
+  </div>
+
+  <div class="register-content" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="25px">
+
+    <div class="register-form" fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="25px">
+
+      <div class="alternate-register" fxLayout="column" fxLayoutAlign="center center">
+
+        <div class="register-message">
+          <h2>{{ 'registration-form.register-title' | translate }}</h2>
+        </div>
+
+      </div>
+
+      <div class="register-input" fxLayout="column" fxLayoutAlign="start stretch">
+        <form [formGroup]="registrationForm">
+
+          <div class="userName" fxLayout="row" fxLayoutAlign="start center">
+            <mat-icon color="primary" class="registrationIcon">email</mat-icon>
+            <mat-form-field>
+              <input matInput type="email" placeholder="{{ 'registration-form.email' | translate }}" formControlName="userEmail"
+                required>
+            </mat-form-field>
+          </div>
+
+          <div class="userPass" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon color="primary" class="registrationIcon">lock</mat-icon>
+            <mat-form-field>
+              <input matInput placeholder="{{ 'registration-form.password' | translate }}"
+                [type]="hide ? 'password' : 'text'" formControlName="password" required>
+              <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon color="primary">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+
+          <div class="userPass" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon color="primary" class="registrationIcon">lock</mat-icon>
+            <mat-form-field>
+              <input matInput placeholder="{{ 'registration-form.confirmPassword' | translate }}"
+                [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required>
+              <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon color="primary">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+
+          <div class="register-btn" fxLayout="column" fxLayoutAlign="center stretch">
+            <button mat-raised-button type="button" (click)="registerMe($event ,template)"
+              color="accent">{{ 'registration-form.register-btn' | translate}}</button>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <div class="register-btn" fxLayout="column" fxLayoutAlign="center stretch">
+            <button mat-raised-button type="button" (click)="backToSignIn($event)"
+              color="accent">{{ 'registration-form.backSignIn-btn' | translate}}</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+    <div class="footer-message" fxLayout="row" fxLayoutAlign="center center">
+      <span><i class="fa fa-copyright"></i>{{ 'registration-form.footer' | translate }}</span>
+    </div>
+
+  </div>
+
+</div>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ 'registration-form.activation-model-title' | translate}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="30px">
+    <div class="model-message" fxLayout="column" fxLayoutAlign="center center">
+      <span>{{ 'registration-form.activation-text1' | translate }}</span>
+      <span>{{ 'registration-form.activation-text2' | translate }}</span>
+    </div>
+    <div class="model-activation-input" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-form-field>
+        <input matInput #emaiOTP placeholder="{{ 'registration-form.activation-Key-text' | translate }}" required>
+      </mat-form-field>
+      <div class="model-btn">
+        <button mat-raised-button class="active-btn"
+          (click)="verifyOTP($event, emaiOTP)">{{ 'registration-form.activation-btn' | translate }}</button>
+      </div>
+      <div class="resendLink">
+        <a href="#">{{ 'registration-form.resend' | translate }}</a>
+      </div>
+    </div>
+
+  </div>
+</ng-template>

@@ -1,0 +1,7 @@
+.header-logo  span{
+  color: hsla(0,0%,100%,.8);
+  font-size: 3em;
+  font-weight: bold;
+  font-style: italic;
+  margin-left: 5%;
+}

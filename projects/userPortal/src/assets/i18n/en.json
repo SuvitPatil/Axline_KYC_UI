@@ -1,0 +1,28 @@
+{
+    "login": {
+    "title": "KYC",
+    "login-title": "Sign In",
+    "login-btn": "Sing In",
+    "registration-btn": "Create Account",
+    "footer": "Axline | Terms of use | Privacy Statement,",
+    "email": "Email",
+    "password": "Password"
+  },
+  "registration-form": {
+    "title": "KYC",
+    "register-title": "Sign Up",
+    "register-btn": "Register Me",
+    "backSignIn-btn": "Back to SignIn",
+    "footer": "Axline | Terms of use | Privacy Statement,",
+    "email": "Email",
+    "password": "Choose Password",
+    "confirmPassword": "Confirm Password",
+    "activation-model-title": "Activate Your Account",
+    "activation-text1": "Activation Key has been sent to your Email ID",
+    "activation-text2": "Use Key to activate your account",
+    "activation-Key-text": "Activation Key",
+    "activation-btn": "Activate",
+    "resend": "Resend Key"
+
+  }
+}

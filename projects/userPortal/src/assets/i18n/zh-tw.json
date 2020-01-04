@@ -1,0 +1,27 @@
+{
+  "login": {
+  "title": "KYC",
+  "login-title": "登入",
+  "login-btn": "登入",
+  "registration-btn": "創建帳號",
+  "footer": "Axline | 使用條款 | 隱私聲明",
+  "email": "電子郵件",
+  "password": "密碼"
+  },
+  "registration-form": {
+    "title": "KYC",
+    "register-title": "註冊",
+    "register-btn": "註冊我",
+    "backSignIn-btn": "回到登錄",
+    "footer": "Axline | 使用條款 | 隱私聲明",
+    "email": "電子郵件",
+    "password": "選擇密碼",
+    "confirmPassword": "確認密碼",
+    "activation-model-title": "激活你的帳號",
+    "activation-text1": "激活密鑰已發送到您的電子郵件ID",
+    "activation-text2": "使用密鑰激活您的帳戶",
+    "activation-Key-text": "激活碼",
+    "activation-btn": "啟用",
+    "resend": "重新發送密鑰"
+  }
+}
