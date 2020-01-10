@@ -3,6 +3,7 @@ import { AuthService } from './auth/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,8 @@ export class LoginComponent implements OnInit {
     public authService: AuthService,
     public router: Router,
     private translate: TranslateService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.langchangebtn = 'English';
     this.setMessage();
@@ -56,18 +58,21 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-    const data = {
-      username: this.loginUserForm.controls.userID.value,
-      password: this.loginUserForm.controls.userPassword.value,
-      orgName: 'Org1'
-    };
+    // const data = {
+    //   username: this.loginUserForm.controls.userID.value,
+    //   password: this.loginUserForm.controls.userPassword.value,
+    //   orgName: 'Org1'
+    // };
 
-    this.authService.login(data).subscribe(res => {
-      if (res.success) {
-        this.authService.isLoggedIn = true;
-        this.router.navigate(['/editProfile']);
-      }
-    });
+    // this.authService.login(data).subscribe(res => {
+    //   if (res.success) {
+    //     this.authService.isLoggedIn = true;
+
+    //     this.router.navigate(['/editProfile']);
+    //   }
+    // });
+    this.authService.isLoggedIn = true;
+    this.router.navigate(['/editProfile']);
   }
 
   public logout() {

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 
@@ -10,6 +10,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 import {
   MatToolbarModule,
@@ -35,13 +36,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    RegistrationComponent
-  ],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -61,6 +57,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgbModule,
     HttpClientModule,
     UserPortalModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -73,6 +74,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [BsModalService],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
-}
+export class AppModule {}
